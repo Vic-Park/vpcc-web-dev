@@ -8,25 +8,11 @@
 				margin: 0;
 			}
 
-			.nav-link {
-				color: white;
-				text-decoration: none;
-				/*
-					Why margin-top doesn't work here without a display: inline-block
-					https://stackoverflow.com/questions/20975091/margin-top-not-working-for-p-and-a-tag/20975224
-				*/
-				margin: 10px;
-
-				/*
-					For more information about `display: inline` vs `display: inline-block`
-					https://stackoverflow.com/questions/8969381/what-is-the-difference-between-display-inline-and-display-inline-block
-				*/
-				display: inline-block;
-			}
-
 			.banner {
 				height: 200px;
 				background-image: url(https://vpciclubs.com/images/hero-image.jpg);
+				display: flex;
+				flex-direction: column;
 			}
 
 			.explore-button {
@@ -36,20 +22,47 @@
 				font-weight: bold;
 				padding: 10px;
 				background-color: #fcc534;
+				text-align: center;
+
+				/* Don't need to specify fixed width + auto margins now! */
+				/*
 				display: block;
 				width: 50px;
-				text-align: center;
 				margin-left: auto;
 				margin-right: auto;
+				*/
+				align-self: center;
+
+				/* Needed or else animation is sharp when mouse leaves button */
+				transition: transform 0.2s;
+			}
+
+			.explore-button:hover {
+				transform: scale(1.05);
+				transition: transform 0.2s;
+			}
+
+			.nav-links {
+				display: flex;
+				/* Note: `flex-direction: row` is the default */
+				flex-direction: row;
+				gap: 5px;
+				padding: 10px;
+			}
+
+			.nav-links > a {
+				color: white;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="banner">
-			<a href="index.html" class="nav-link">home</a>
-			<a href="#" class="nav-link">announcements</a>
-			<a href="coding-club.html" class="nav-link">clubs</a>
-			<a href="#" class="nav-link">calendar</a>
+			<div class='nav-links'>
+				<a href="index.html">home</a>
+				<a href="#">announcements</a>
+				<a href="coding-club.html">clubs</a>
+				<a href="#">calendar</a>
+			</div>
 
 			<h1 style="color: white; text-align: center">victoria park ci</h1>
 			<a class="explore-button" href="clubs.html">explore</a>
