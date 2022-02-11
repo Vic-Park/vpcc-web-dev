@@ -2,4 +2,7 @@
 
 ## Topics
 
-TODO
+CSS Classes
+CSS Selectors
+Inline styles
+Various CSS properties
